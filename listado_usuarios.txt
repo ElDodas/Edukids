@@ -1,0 +1,4 @@
+admin:contrasena;admin;
+dodas:contrasena;dodas;PMates;0;PLengua;0;PCiencia;0;PCasual;0;Monedas;0;Racha;1
+rodri:contrasena;rodri;PMates;0;PLengua;0;PCiencia;0;PCasual;0;Monedas;0;Racha;1
+rodri2:contrasena;rodri2;PMates;0;PLengua;0;PCiencia;0;PCasual;0;Monedas;0;Racha;1;
