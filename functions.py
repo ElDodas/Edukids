@@ -66,68 +66,208 @@ def casual_title():
 #--------------------< MENÚS >--------------------#
 
 # Aquí se encuentran todos los menús de la aplicación, todos se encargan de pedir una opción para seguir navegando infinitamente hasta que se quiera salir de la aplicación
+def listado_usuarios():
+    from pathlib import Path
+    
+    if not Path('listado_usuarios.txt').exists():
+        file = open("listado_usuarios.txt","w")
+        file.write("admin:contrasena;admin")
+        file.close()
 
-def main_menu():
+def main_menu(logged,User_dates):
     os.system(var) # Borra el terminal
     condicion = True
-    while condicion:
-        titulo() # Imprime un graffiti con el título de Edukids
-        time.sleep(.4)
-        print("\t\t\t\tBienvenido a EDUKIDS\n")
-        time.sleep(.4)
-        print("\t\t1.Juegos\n")
-        time.sleep(.4)
-        print("\t\t2.Salir\n")
-        time.sleep(.4)
-        opc = input("\t\tIntroduce una opción:\t")
-
-        while opc != "1" and opc != "2": # Valida que la opción introducida sea correcta
-            os.system(var)
-            titulo()
+    
+    if logged == False: # Comprueba si el usuario está loggeado
+        while condicion:
+            titulo() # Imprime un graffiti con el título de Edukids
+            time.sleep(.4)
             print("\t\t\t\tBienvenido a EDUKIDS\n")
+            time.sleep(.4)
             print("\t\t1.Juegos\n")
-            print("\t\t2.Salir\n")
-            time.sleep(0.2)
-            opc = input("\t\tIntroduce una opción válida:\t")
-        
-        condicion = False
+            time.sleep(.4)
+            print("\t\t2.Iniciar sesión / Registrarse\n")
+            time.sleep(.4)
+            print("\t\t3.Salir\n")
+            time.sleep(.4)
+            opc = input("\t\tIntroduce una opción:\t")
+
+            while opc != "1" and opc != "2" and opc != "3": # Valida que la opción introducida sea correcta
+                os.system(var)
+                titulo()
+                print("\t\t\t\tBienvenido a EDUKIDS\n")
+                print("\t\t1.Juegos\n")
+                print("\t\t2.Iniciar sesión / Registrarse\n")
+                print("\t\t3.Salir\n")
+                time.sleep(0.2)
+                opc = input("\t\tIntroduce una opción válida:\t")
+            
+            condicion = False
+    else:
+        while condicion:
+            titulo() # Imprime un graffiti con el título de Edukids
+            time.sleep(.4)
+            print("\t\t\t\tBienvenido a EDUKIDS\n")
+            time.sleep(.4)
+            print("\t\t1.Juegos\n")
+            time.sleep(.4)
+            print("\t\t2.Estadísticas\n")
+            time.sleep(.4)
+            print("\t\t3.Salir\n")
+            time.sleep(.4)
+            opc = input("\t\tIntroduce una opción:\t")
+
+            while opc != "1" and opc != "2" and opc != "3": # Valida que la opción introducida sea correcta
+                os.system(var)
+                titulo()
+                print("\t\t\t\tBienvenido a EDUKIDS\n")
+                print("\t\t1.Juegos\n")
+                print("\t\t2.Estadísticas\n")
+                print("\t\t3.Salir\n")
+                time.sleep(0.2)
+                opc = input("\t\tIntroduce una opción válida:\t")
+            
+            condicion = False
     
     return int(opc)
 
-def category_menu():
+def category_menu(logged,User_dates):
     os.system(var)
     condicion = True
-    while condicion:
-        games_title()
-        time.sleep(0.2)
-        print("\t\t1.Matemáticas\n")
-        time.sleep(0.2)
-        print("\t\t2.Lengua\n")
-        time.sleep(0.2)
-        print("\t\t3.Ciencia\n")
-        time.sleep(0.2)
-        print("\t\t4.Casual\n")
-        time.sleep(0.2)
-        print("\t\t5.Volver\n")
-        time.sleep(0.2)
-        opc = input("\t\tIntroduce una opción:\t")
-
-        while opc != "1" and opc != "2" and opc != "3" and opc != "4" and opc != "5":
-            os.system(var)
+    
+    if logged == True:
+        while condicion:
             games_title()
+            time.sleep(0.2)
             print("\t\t1.Matemáticas\n")
+            time.sleep(0.2)
             print("\t\t2.Lengua\n")
+            time.sleep(0.2)
             print("\t\t3.Ciencia\n")
+            time.sleep(0.2)
             print("\t\t4.Casual\n")
+            time.sleep(0.2)
             print("\t\t5.Volver\n")
             time.sleep(0.2)
-            opc = input("\t\tIntroduce una opción válida:\t")
+            opc = input("\t\tIntroduce una opción:\t")
+
+            while opc != "1" and opc != "2" and opc != "3" and opc != "4" and opc != "5":
+                os.system(var)
+                games_title()
+                print("\t\t1.Matemáticas\n")
+                print("\t\t2.Lengua\n")
+                print("\t\t3.Ciencia\n")
+                print("\t\t4.Casual\n")
+                print("\t\t5.Volver\n")
+                time.sleep(0.2)
+                opc = input("\t\tIntroduce una opción válida:\t")
+            
+            condicion = False
+        return int(opc)
+    else:
+        print(f"\tPara jugar a los juegos debes iniciar sesión\n")
+        stop = input("\tPulsa enter...") # Esto detiene la función hasta que el usuario quiera continuar 
         
-        condicion = False
+        return 5
+
+def login_register_menu():
+    os.system(var) # Borra el terminal
+    condicion = True
     
+    while condicion:
+            titulo() # Imprime un graffiti con el título de Edukids
+            print("\t\t\t\tBienvenido a EDUKIDS\n")
+            time.sleep(.4)
+            print("\t\t1.Iniciar sesión\n")
+            print("\t\t2.Registrarse\n")
+            print("\t\t3.Volver\n")
+            time.sleep(0.2)
+            opc = input("\t\tIntroduce una opción:\t")
+
+            while opc != "1" and opc != "2" and opc != "3": # Valida que la opción introducida sea correcta
+                os.system(var)
+                titulo()
+                print("\t\t\t\tBienvenido a EDUKIDS\n")
+                print("\t\t1.Iniciar sesión\n")
+                print("\t\t2.Registrarse\n")
+                print("\t\t3.Volver\n")
+                time.sleep(0.2)
+                opc = input("\t\tIntroduce una opción válida:\t")
+            
+            condicion = False
+            
     return int(opc)
 
-def matematicas():
+def login():
+    os.system(var)
+    time.sleep(.4)
+    print(f"\t\t\t\tIniciar sesión\n")
+    time.sleep(.4)
+    user = input(f"\tIntroduce tu nombre de usuario:\t").lower().strip()
+    encontrado = False
+    try:
+        with open('listado_usuarios.txt') as f:
+            for linea in f:
+                datos_usuario = linea.split(":")
+                if datos_usuario[0] == user:
+                    encontrado = True
+                    break
+        f.close()
+    except:
+            print(f"Ha habido un error :(")
+    else:
+        if encontrado == True:
+            password = input(f"\tIntroduce la contraseña para {datos_usuario[0]}:\t")
+            valores_usuario = datos_usuario[1].split(";")
+            
+            if valores_usuario[1] == password:
+                print(f"\n\tBienvenid@ {user.title()}, has iniciado sesión satisfactoriamente!!\n")
+                stop = input("\tPulsa enter...") # Esto detiene la función hasta que el usuario quiera continuar 
+                logged = True
+                logged_User = [logged, datos_usuario]
+                return logged_User
+            else:
+                print(f"\tUsuario o contraseña erróneo\n")
+                stop = input("\tPulsa enter...") # Esto detiene la función hasta que el usuario quiera continuar 
+                logged = False
+                logged_User = [logged, datos_usuario]
+                return logged_User
+        else:
+            print(f"\n\tUsuario no encontrado\n")
+            stop = input("\tPulsa enter...") # Esto detiene la función hasta que el usuario quiera continuar 
+            logged = False
+            datos_usuario = []
+            logged_User = [logged, datos_usuario]
+            return logged_User
+
+def register():
+    os.system(var)
+    time.sleep(.4)
+    print(f"\t\t\t\tRegistrarse\n")
+    time.sleep(.4)
+    user = input(f"\tIntroduce tu nombre de usuario:\t").lower().strip()
+    encontrado = False
+    try:
+        with open('listado_usuarios.txt') as f:
+            for linea in f:
+                datos_usuario = linea.split(":")
+                if datos_usuario[0] == user:
+                    encontrado = True
+                    break
+    except:
+            print(f"Ha habido un error :(")
+    else:
+        if encontrado == True:
+            print(f"\n\tYa existe un usuario con ese nombre, inicia sesión o prueba con otro nombre de usuario")
+            stop = input("\tPulsa enter...") # Esto detiene la función hasta que el usuario quiera continuar 
+        else:
+            f = open('listado_usuarios.txt','a')
+            password = input(f"\tIntroduce una contraseña para {user}:\t")
+            f.write(f"{user}:contrasena;{password};PMates;{0};PLengua;{0};PCiencia;{0};PCasual;{0};Monedas;{0};Racha;{1};\n")
+            print(f"\n\tUsuario registrado con éxito, inicia sesión y empieza a jugar\n")
+            stop = input("\tPulsa enter...") # Esto detiene la función hasta que el usuario quiera continuar 
+
+def matematicas(logged,User_dates):
     os.system(var)
     condicion = True
     while condicion:
@@ -160,7 +300,7 @@ def matematicas():
 
         return int(opc)
 
-def lengua():
+def lengua(logged,User_dates):
     os.system(var)
     condicion = True
     while condicion:
@@ -187,7 +327,7 @@ def lengua():
 
         return int(opc)
 
-def ciencia():
+def ciencia(logged,User_dates):
     os.system(var)
     condicion = True
     while condicion:
@@ -217,7 +357,7 @@ def ciencia():
 
         return int(opc)
 
-def casual():
+def casual(logged,User_dates):
     os.system(var)
     condicion = True
     while condicion:
@@ -270,7 +410,7 @@ def buscanumeros():
     print(f"\t---> Correcto, el número oculto es {num}")
 
 
-    stop = input("\tMete un número:\t") # Esto detiene la función hasta que el usuario quiera continuar 
+    stop = input("\t\tPulsa enter...") # Esto detiene la función hasta que el usuario quiera continuar 
 
 def sucesiones():
     os.system(var)
@@ -290,10 +430,10 @@ def sucesiones():
     siguienteV = int(input('\t\t¿Cual es el siguiente numero de la sucesion?: '))
     if multiplicador == inputMultiplicador and sucesion[-1]*multiplicador == siguienteV:
         print('\n\t\tEnhorabuena has acertado la sucesion')
-        stop = input("\t\tPulsa una tecla...")
+        stop = input("\t\tPulsa enter...")
     else:
         print('\t\tVuelva a intentarlo')
-        stop = input("\t\tPulsa una tecla...")
+        stop = input("\t\tPulsa enter...")
 
 def operaciones():
     os.system(var)
@@ -333,7 +473,7 @@ def operaciones():
                     print(f'\n\t\tHas acertado\n')
                 else:
                     print(f'\n\t\tFallaste, el resultado es {num1 / num2}\n')
-    stop = input("\t\tPulsa una tecla...")
+    stop = input("\t\tPulsa enter...")
 
 def problemas():
     os.system(var)
@@ -354,10 +494,10 @@ def problemas():
     resultado = int(input(problemas[problema]))
     if resultado == resultados[problema]:
         print('\n\tEnhorabuena has acertado el problema')
-        stop = input("\tPulsa una tecla...")
+        stop = input("\tPulsa enter...")
     else:
         print('\n\tFallaste el resultado correcto era: '+str(resultados[problema]))
-        stop = input("\tPulsa una tecla...")
+        stop = input("\tPulsa enter...")
 
 #--------------------< LENGUA >--------------------#
 def sinonimos() :
@@ -393,7 +533,7 @@ def sinonimos() :
       else:
         print("\nincorrecto")	 
     break
-  stop = input("\t\tPulsa una tecla...")
+  stop = input("\t\tPulsa enter...")
 
 def ahorcado():
   os.system(var)
@@ -488,7 +628,7 @@ def ahorcado():
         print("perdiste :(")
   else:
     print("gracias por participar")
-  stop = input("\t\tPulsa una tecla...")
+  stop = input("\t\tPulsa enter...")
 #--------------------< CIENCIA >--------------------#
 
 # Los juegos de ciencias se basan en la misma función para hacer preguntas
@@ -555,7 +695,7 @@ def science_questions():
             else:
                 print("\n\t\t---> Incorrecto\n")
 
-    stop = input("\t\tPulsa una tecla...") # Esto detiene la función hasta que el usuario quiera continuar 
+    stop = input("\t\tPulsa enter...") # Esto detiene la función hasta que el usuario quiera continuar 
 
 def historic_dates():
     import random
@@ -617,7 +757,7 @@ def historic_dates():
                 print("\n\t\t---> Correcto\n")
             else:
                 print("\n\t\t---> Incorrecto\n")
-    stop = input("\t\tPulsa una tecla...")
+    stop = input("\t\tPulsa enter...")
 
 def countries_questions():
     os.system(var)
@@ -679,7 +819,7 @@ def countries_questions():
                 print("\n\t\t---> Correcto\n")
             else:
                 print("\n\t\t---> Incorrecto\n")
-    stop = input("\t\tPulsa una tecla...")
+    stop = input("\t\tPulsa enter...")
 #--------------------< CASUAL >--------------------#
 
 def trivial():
