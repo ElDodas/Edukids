@@ -1,4 +1,2 @@
-admin:contrasena;admin;
-dodas:contrasena;dodas;PMates;0;PLengua;0;PCiencia;0;PCasual;0;Monedas;0;Racha;1
-rodri:contrasena;rodri;PMates;0;PLengua;0;PCiencia;0;PCasual;0;Monedas;0;Racha;1
-rodri2:contrasena;rodri2;PMates;0;PLengua;0;PCiencia;0;PCasual;0;Monedas;0;Racha;1;
+rodri:contrasena;rodri;PMates;1;PLengua;1;PCiencia;1;PCasual;1;Monedas;0;Racha;1;MG1;1;MG2;1;MG3;0;MG4;0;LG1;1;LG2;0;CG1;1;CG2;0;CG3;0;
+admin:contrasena;admin;PMates;1;PLengua;1;PCiencia;1;PCasual;1;Monedas;200;Racha;1;MG1;1;MG2;1;MG3;0;MG4;0;LG1;1;LG2;0;CG1;1;CG2;0;CG3;0;
