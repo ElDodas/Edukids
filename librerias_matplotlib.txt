@@ -1,0 +1,6 @@
+https://programmerclick.com/article/12521592663/
+
+pip install flake8
+pip install yapf
+
+python -m pip install matplotlib
